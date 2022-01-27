@@ -30,6 +30,8 @@ while True:
             continue
         (x,y,w,h) = cv2.boundingRect(contour)
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 3)
+    ## Trying to merger the overlapping rectangles
+    cv2.groupRectangles()
     
     status_list.append(status)
     status_list = status_list[-2:]
@@ -60,5 +62,3 @@ df.to_csv("Times.csv")
 
 video.release()
 cv2.destroyAllWindows()
-
-
